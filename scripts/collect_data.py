@@ -21,10 +21,10 @@ def collect_tweets(api_key, api_secret_key, access_token, access_token_secret, q
 
 if __name__ == "__main__":
     # Replace these with your actual credentials and query parameters
-    API_KEY = 'your_api_key'
-    API_SECRET_KEY = 'your_api_secret_key'
-    ACCESS_TOKEN = 'your_access_token'
-    ACCESS_TOKEN_SECRET = 'your_access_token_secret'
+    API_KEY = '3nLQm7rIuF0Mmub02R6u8I1t1'
+    API_SECRET_KEY = 'Q4bY3PDS7h1a1JcYHOYhZ2hTEN5cQFrKWfzIo4CMWQYbNWQwsc'
+    ACCESS_TOKEN = '1791429800780869632-TJ9t8NhnapMqQqUE3cbks0g0aVYskQ'
+    ACCESS_TOKEN_SECRET = 'pNioK4B4Y9DRV6UIWNvYon3MCbVrzUv1KLHzVqzqII5Rb'
     QUERY = 'example query'
     MAX_TWEETS = 100
     OUTPUT_FILE = os.path.join('data', 'raw_data', 'tweets.json')
