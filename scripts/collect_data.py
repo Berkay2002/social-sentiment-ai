@@ -1,6 +1,10 @@
 import tweepy
 import json
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 def collect_tweets(api_key, api_secret_key, access_token, access_token_secret, query, max_tweets, output_file):
     # Authenticate to the Twitter API
@@ -20,12 +24,12 @@ def collect_tweets(api_key, api_secret_key, access_token, access_token_secret, q
         json.dump(tweets, f, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
-    # Replace these with your actual credentials and query parameters
-    API_KEY = '3nLQm7rIuF0Mmub02R6u8I1t1'
-    API_SECRET_KEY = 'Q4bY3PDS7h1a1JcYHOYhZ2hTEN5cQFrKWfzIo4CMWQYbNWQwsc'
-    ACCESS_TOKEN = '1791429800780869632-TJ9t8NhnapMqQqUE3cbks0g0aVYskQ'
-    ACCESS_TOKEN_SECRET = 'pNioK4B4Y9DRV6UIWNvYon3MCbVrzUv1KLHzVqzqII5Rb'
-    QUERY = 'example query'
+    # Load credentials from environment variables
+    API_KEY = os.getenv('API_KEY')
+    API_SECRET_KEY = os.getenv('API_SECRET_KEY')
+    ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
+    ACCESS_TOKEN_SECRET = os.getenv('ACCESS_TOKEN_SECRET')
+    QUERY = '#example'
     MAX_TWEETS = 100
     OUTPUT_FILE = os.path.join('data', 'raw_data', 'tweets.json')
 
