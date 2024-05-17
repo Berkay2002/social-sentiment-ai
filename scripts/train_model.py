@@ -1,6 +1,6 @@
 import tensorflow as tf
 from transformers import BertTokenizer, TFBertForSequenceClassification
-from tensorflow.keras.optimizers import Adam
+from tensorflow import keras
 import json
 import os
 
@@ -22,8 +22,10 @@ def train_sentiment_model(train_texts, train_labels, epochs=2, batch_size=16):
         train_labels
     )).batch(batch_size)
 
-    optimizer = Adam(learning_rate=3e-5)
-    model.compile(optimizer=optimizer, loss=model.compute_loss, metrics=['accuracy'])
+    optimizer = keras.optimizers.Adam()
+    loss = keras.losses.SparseCategoricalCrossentropy(from_logits=True)
+    metric = keras.metrics.SparseCategoricalAccuracy('accuracy')
+    model.compile(optimizer=optimizer, loss=loss, metrics=[metric])
     
     model.fit(train_dataset, epochs=epochs)
     return model
